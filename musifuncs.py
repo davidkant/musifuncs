@@ -114,7 +114,8 @@ def normalize(x):
 
     return x/np.max(x) 
 
-# numbers
+
+# numbers -------------------------------------------------------------------- #
 
 def scale(x, lo=0, hi=1):
 
