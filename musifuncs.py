@@ -113,3 +113,12 @@ def normalize(x):
     """Normalize waveform."""
 
     return x/np.max(x) 
+
+# numbers
+
+def scale(x, lo=0, hi=1):
+
+    """Scale array."""
+
+    x_min, x_max = np.min(x), np.max(x)
+    return lo + (hi - lo) * (x - x_min) / float(x_max - x_min)
