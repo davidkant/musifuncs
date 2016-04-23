@@ -112,7 +112,7 @@ def normalize(x):
 
     """Normalize waveform."""
 
-    return x/np.max(x) 
+    return x/np.max(np.abs(x)) 
 
 
 # numbers -------------------------------------------------------------------- #
