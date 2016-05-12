@@ -117,9 +117,13 @@ def normalize(x):
 
 # numbers -------------------------------------------------------------------- #
 
-def scale(x, lo=0, hi=1):
+def scale(x, from_lo=None, from_hi=None, to_lo=0, to_hi=1, clip=False):
 
     """Scale array."""
 
-    x_min, x_max = np.min(x), np.max(x)
-    return lo + (hi - lo) * (x - x_min) / float(x_max - x_min)
+    if from_lo is None: from_lo = np.min(x)
+    if from_hi is None: from_hi = np.max(x)
+
+    out = to_lo + (to_hi - to_lo) * (x - from_lo) / float(from_hi - from_lo)
+    
+    return out if not clip else np.clip(out, min([to_lo, to_hi]), max([to_hi, to_lo]))
