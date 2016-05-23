@@ -127,3 +127,13 @@ def scale(x, from_lo=None, from_hi=None, to_lo=0, to_hi=1, clip=False):
     out = to_lo + (to_hi - to_lo) * (x - from_lo) / float(from_hi - from_lo)
     
     return out if not clip else np.clip(out, min([to_lo, to_hi]), max([to_hi, to_lo]))
+
+def average():
+
+    """Moving average smoothing."""
+    
+    ret = np.cumsum(a, dtype=float)
+    ret[n:] = ret[n:] - ret[:-n]
+    ret[n-1:] = ret[n-1:]/n
+    # return ret[n - 1:] / n
+    return ret"
