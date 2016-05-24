@@ -136,4 +136,4 @@ def average():
     ret[n:] = ret[n:] - ret[:-n]
     ret[n-1:] = ret[n-1:]/n
     # return ret[n - 1:] / n
-    return ret"
+    return ret
